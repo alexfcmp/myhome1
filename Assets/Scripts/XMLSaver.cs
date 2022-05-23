@@ -40,21 +40,26 @@ namespace LevelMaze
                     var key = "Position X";
                     if (reader.IsStartElement(key))
                     {
-                        result.x = reader.GetAttribute("value");
+                        var parse = reader.GetAttribute("value");
+                        float.TryParse(parse, out var forResult);
+                        result.x = forResult;
                     }
                     key = "Position Y";
                     if (reader.IsStartElement(key))
                     {
-                        result.x = reader.GetAttribute("value");
+                        var parse = reader.GetAttribute("value");
+                        float.TryParse(parse, out var forResult);
+                        result.y = forResult;
                     }
                     key = "Position Z";
                     if (reader.IsStartElement(key))
                     {
-                        result.x = reader.GetAttribute("value");
+                        var parse = reader.GetAttribute("value");
+                        float.TryParse(parse, out var forResult);
+                        result.z = forResult;
                     }
                 }
             }
-
             return result;
         }
     }

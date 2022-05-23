@@ -1,3 +1,4 @@
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace LevelMaze
     {
         [SerializeField] List<BadBonus> badBonuses;
         [SerializeField] List<GoodBonus> goodBonuses;
+
+        XMLSaver bonusSaver = new XMLSaver();
 
         void Start()
         {
@@ -21,6 +24,11 @@ namespace LevelMaze
 
                 OnGoodBonusTook();
                 OnBadBonusTook();
+
+                foreach (var goodBonus in goodBonuses)
+                {
+                    bonusSaver.SaveBonus(goodBonus.gameObject.transform.position, Path.Combine(Application.streamingAssetsPath, "BonusCoordinate.txt"));
+                }
             } catch (MyNullException ex) { Debug.LogException(ex); }
         }
 

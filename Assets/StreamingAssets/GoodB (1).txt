@@ -1,0 +1,5 @@
+<Bonus>
+  <Position_X value="33,22333" />
+  <Position_Y value="33,5" />
+  <Position_Z value="34,45667" />
+</Bonus>

@@ -70,6 +70,23 @@
     <Compile Include="Assets\Scripts\XMLSaver.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\StreamingAssets\GoodB (1).txt" />
+    <None Include="Assets\StreamingAssets\BadB (4).txt" />
+    <None Include="Assets\StreamingAssets\GoodB (2).txt" />
+    <None Include="Assets\StreamingAssets\BonusCoordinate.txt" />
+    <None Include="Assets\StreamingAssets\GoodB (5).txt" />
+    <None Include="Assets\StreamingAssets\GoodB (6).txt" />
+    <None Include="Assets\StreamingAssets\BadB (2).txt" />
+    <None Include="Assets\StreamingAssets\GoodB.txt" />
+    <None Include="Assets\StreamingAssets\BadB (5).txt" />
+    <None Include="Assets\StreamingAssets\BadB (1).txt" />
+    <None Include="Assets\StreamingAssets\BadB.txt" />
+    <None Include="Assets\StreamingAssets\BadB (6).txt" />
+    <None Include="Assets\StreamingAssets\GoodB (4).txt" />
+    <None Include="Assets\StreamingAssets\GoodB (3).txt" />
+    <None Include="Assets\StreamingAssets\BadB (3).txt" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.2f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

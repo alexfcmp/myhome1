@@ -2,6 +2,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Debug;
 
 namespace LevelMaze
 {
@@ -27,7 +28,20 @@ namespace LevelMaze
 
                 foreach (var goodBonus in goodBonuses)
                 {
-                    bonusSaver.SaveBonus(goodBonus.gameObject.transform.position, Path.Combine(Application.streamingAssetsPath, "BonusCoordinate.txt"));
+                    bonusSaver.Save(goodBonus.gameObject.transform.position, Path.Combine(Application.streamingAssetsPath, $"{goodBonus.name}.txt"));
+                }
+                foreach (var badBonus in badBonuses)
+                {
+                    bonusSaver.Save(badBonus.gameObject.transform.position, Path.Combine(Application.streamingAssetsPath, $"{badBonus.name}.txt"));
+                }
+
+                foreach (var goodBonus in goodBonuses)
+                {
+                    Log($"{goodBonus.name} " + bonusSaver.Load(Path.Combine(Application.streamingAssetsPath, $"{goodBonus.name}.txt")));
+                }
+                foreach (var badBonus in badBonuses)
+                {
+                    Log($"{badBonus.name} " + bonusSaver.Load(Path.Combine(Application.streamingAssetsPath, $"{badBonus.name}.txt")));
                 }
             } catch (MyNullException ex) { Debug.LogException(ex); }
         }

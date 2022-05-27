@@ -8,28 +8,30 @@ namespace LevelMaze
 {
     public sealed class XMLSaver : ILoadSave<Vector3>
     {
-        public void SaveBonus(Vector3 bonus, string path = null)
+        public void Save(Vector3 bonus, string path = null)
         {
             XmlDocument document = new XmlDocument();
 
             XmlNode rootNode = document.CreateElement("Bonus");
             document.AppendChild(rootNode);
 
-            var element = document.CreateElement("Position X");
-            element.SetAttribute("value", bonus.x.ToString());
+            //шифрование с помощью алгоритма {x + 100 / 3}
+
+            var element = document.CreateElement("Position_X");
+            element.SetAttribute("value", $"{(bonus.x + 100) / 3}");
             rootNode.AppendChild(element);
 
-            element = document.CreateElement("Position Y");
-            element.SetAttribute("value", bonus.y.ToString());
+            element = document.CreateElement("Position_Y");
+            element.SetAttribute("value", $"{(bonus.y + 100) / 3}");
             rootNode.AppendChild(element);
 
-            element = document.CreateElement("Position Z");
-            element.SetAttribute("value", bonus.z.ToString());
+            element = document.CreateElement("Position_Z");
+            element.SetAttribute("value", $"{(bonus.z + 100) / 3}");
             rootNode.AppendChild(element);
 
             document.Save(path);
         }
-        public Vector3 LoadBonus(string path = null)
+        public Vector3 Load(string path = null)
         {
             var result = new Vector3();
             if (!File.Exists(path)) return result;
@@ -37,26 +39,26 @@ namespace LevelMaze
             {
                 while (reader.Read())
                 {
-                    var key = "Position X";
+                    var key = "Position_X";
                     if (reader.IsStartElement(key))
                     {
                         var parse = reader.GetAttribute("value");
                         float.TryParse(parse, out var forResult);
-                        result.x = forResult;
+                        result.x = forResult * 3 - 100;
                     }
-                    key = "Position Y";
+                    key = "Position_Y";
                     if (reader.IsStartElement(key))
                     {
                         var parse = reader.GetAttribute("value");
                         float.TryParse(parse, out var forResult);
-                        result.y = forResult;
+                        result.y = forResult * 3 - 100;
                     }
-                    key = "Position Z";
+                    key = "Position_Z";
                     if (reader.IsStartElement(key))
                     {
                         var parse = reader.GetAttribute("value");
                         float.TryParse(parse, out var forResult);
-                        result.z = forResult;
+                        result.z = forResult * 3 - 100;
                     }
                 }
             }

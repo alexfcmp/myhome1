@@ -6,8 +6,8 @@ namespace LevelMaze
 {
     public interface ILoadSave<T>
     {
-        void SaveBonus(T bonuses, string path = null);
+        void Save(T item, string path = null);
         
-        T LoadBonus(string path = null);
+        T Load(string path = null);
     }
 }

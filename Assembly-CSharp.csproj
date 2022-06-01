@@ -65,6 +65,8 @@
     <Compile Include="Assets\Scripts\Bonuses.cs" />
     <Compile Include="Assets\Scripts\GoodBonus.cs" />
     <Compile Include="Assets\Scripts\WinController.cs" />
+    <Compile Include="Assets\Scripts\MyEditorScript.cs" />
+    <Compile Include="Assets\Scripts\MenuItems.cs" />
     <Compile Include="Assets\Scripts\KeyPanel.cs" />
     <Compile Include="Assets\Scripts\MyNullException.cs" />
     <Compile Include="Assets\Scripts\XMLSaver.cs" />
